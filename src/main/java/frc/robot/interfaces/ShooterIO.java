@@ -7,8 +7,7 @@ import com.stzteam.mars.models.singlemodule.IO;
 @Fallback
 public interface ShooterIO extends IO<ShooterIO.ShooterInputs> {
   public static class ShooterInputs extends Data<ShooterInputs> {
-    public double currentRpm = 0.0;
-    public double targetSpeed = 0.0;
+    public double currentRps = 0.0;
     public double currentTemp = 0.0;
     public boolean isPrjectileLoaded = false;
     public double appliedVoltage = 0.0;

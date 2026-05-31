@@ -15,9 +15,10 @@ public class Shooter implements ShooterIO {
 
   public Shooter() {
     this.flywheel = new SparkMax(0, MotorType.kBrushless);
-    SparkMaxConfig config = new SparkMaxConfig();
-    flywheel.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     flywheelEncoder = flywheel.getEncoder();
+    SparkMaxConfig config = new SparkMaxConfig();
+    config.encoder.positionConversionFactor((1 / 3) / 60);
+    flywheel.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
 
   @Override
@@ -41,6 +42,6 @@ public class Shooter implements ShooterIO {
 
   @Override
   public void updateInputs(ShooterInputs inputs) {
-    inputs.currentRpm = flywheelEncoder.getVelocity();
+    inputs.currentRps = flywheelEncoder.getVelocity();
   }
 }
