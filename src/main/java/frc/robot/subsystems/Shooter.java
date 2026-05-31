@@ -12,11 +12,11 @@ import frc.robot.interfaces.ShooterIO;
 public class Shooter implements ShooterIO {
   private SparkMax flywheel;
   private RelativeEncoder flywheelEncoder;
+  private SparkMaxConfig config = new SparkMaxConfig();
 
   public Shooter() {
     this.flywheel = new SparkMax(0, MotorType.kBrushless);
     flywheelEncoder = flywheel.getEncoder();
-    SparkMaxConfig config = new SparkMaxConfig();
     config.encoder.positionConversionFactor((1 / 3) / 60);
     flywheel.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
