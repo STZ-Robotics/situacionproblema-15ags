@@ -38,7 +38,7 @@ public class Arm implements ArmIO {
 
   @Override
   public void updateInputs(ArmInputs inputs) {
-    inputs.currentAngle = armMotor.getPosition().getValueAsDouble();
+    inputs.currentAngle = armMotor.getPosition().getValueAsDouble() * 360;
     inputs.appliedCurrent = armMotor.getStatorCurrent().getValueAsDouble();
     inputs.currentRps = armMotor.getVelocity().getValueAsDouble();
   }
