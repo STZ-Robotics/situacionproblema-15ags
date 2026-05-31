@@ -1,8 +1,10 @@
 package frc.robot.interfaces;
 
+import com.stzteam.features.marsprocessor.Fallback;
 import com.stzteam.mars.models.singlemodule.Data;
 import com.stzteam.mars.models.singlemodule.IO;
 
+@Fallback
 public interface ShooterIO extends IO<ShooterIO.ShooterInputs> {
   public static class ShooterInputs extends Data<ShooterInputs> {
     public double currentRpm = 0.0;
